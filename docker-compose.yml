@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+  server:
+    build:
+      context: server
+    network_mode: 'host'
+    environment:
+      - PORT=3000
+      - LOG_PATH=/log.txt
+    ports:
+      - "3000:3000"
+    restart: always
+    volumes:
+      - "./server/log.txt:/log.txt"
